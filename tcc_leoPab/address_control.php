@@ -1,4 +1,5 @@
 <?php 
+
     session_start();
 
     require_once "../../tcc_leoPab/address_model.php";
@@ -21,6 +22,28 @@
         $addressService = new AddressService($conexao, $endereco);
 
         $addressService->inserir();
+
+        header('Location: analise.php?inclusao=1');
+
+    }elseif($acao == 'recuperar'){
+        $endereco = new Address();
+        $conexao = new Conexao();
+
+        $addressService = new AddressService($conexao, $endereco);
+        $address = $addressService->recuperar();
+    }elseif($acao == 'remover'){
+        $endereco = new Address();
+        $endereco->__set('id', $_GET['id']);
+
+        $conexao = new Conexao();
+        $addressService = new AddressService($conexao, $endereco);
+        $addressService->remover();
+
+        if (isset($_GET['pag']) && $_GET['pag'] == 'index'){
+            header('location: index.php');
+        }else{
+            header('location: all_address.php');
+        }
 
     }
 

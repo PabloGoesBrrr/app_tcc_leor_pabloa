@@ -20,6 +20,28 @@ class AddressService {
         $stmt->bindValue(':tipo', $this->endereco->__get('tipo'));
         $stmt->execute();
     }
+    //read
+    public function recuperar(){
+        $query = '
+            select
+                a.id, a.endereco, a.cidade, a.estado, a.tipo
+            from
+                tb_address as a
+            where a.id_user = :id_user
+            '
+            ;
+        $stmt = $this->conexao->prepare($query);
+        $stmt->bindValue(':id_user', $_SESSION['id']);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_OBJ);
+    }
+    //delete
+    public function remover(){
+        $query = "delete from tb_address where id = :id";
+        $stmt = $this->conexao->prepare($query);
+        $stmt->bindValue(':id', $this->endereco->__get('id'));
+        return $stmt->execute();
+    }
 
 }
 

@@ -1,6 +1,6 @@
 <?php
     require_once '../../tcc_leoPab/verify.php';
-    require_once 'address_control.php'
+
 ?>
 
 <!doctype html>
@@ -11,6 +11,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Análise de Localização - LocalCerto</title>
         <link rel="stylesheet" href="style.css">
+        <style>
+
+        </style>
     </head>
 
     <body>
@@ -26,6 +29,13 @@
                     </nav>
                 </div>
         </header>
+
+        <?php if(isset($_GET['inclusao']) && $_GET['inclusao'] == 1) { ?>
+		<div class="hero">
+			<h3>Endereço inserido com sucesso!</h3>
+            <a href="all_address.php" class="btn-primary">Veja seus endereços em analise</a>
+		</div>
+		<?php } ?>
 
         <main>
             <section class="form-section">
@@ -75,6 +85,5 @@
             </div>
         </footer>
 
-        <script src="main.js"></script>
         </body>
 </html>

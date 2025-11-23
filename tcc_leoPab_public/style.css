@@ -71,6 +71,7 @@ main {
   margin-bottom: 20px;
 }
 
+
 .hero p {
   font-size: 18px;
   margin-bottom: 30px;
@@ -132,7 +133,7 @@ main {
   display: inline-block;
   background-color: transparent;
   color: #db344a;
-  padding: 20px 30px;
+  padding: 12px 30px;
   text-decoration: none;
   border-radius: 5px;
   font-size: 16px;

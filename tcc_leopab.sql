@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 23/11/2025 às 00:51
+-- Tempo de geração: 23/11/2025 às 03:59
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -36,6 +36,16 @@ CREATE TABLE `tb_address` (
   `tipo` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Despejando dados para a tabela `tb_address`
+--
+
+INSERT INTO `tb_address` (`id`, `id_user`, `endereco`, `cidade`, `estado`, `tipo`) VALUES
+(2, 1, 'caca', 'caa', 'ss', 'loja'),
+(10, 4, 'outro', 'endereco', 'sp', 'escritorio'),
+(11, 1, 'spcorar', 'aadasda', 'ss', 'servicos'),
+(16, 4, 'teste quarenta', 'sumare', 'marcos', 'loja');
+
 -- --------------------------------------------------------
 
 --
@@ -55,7 +65,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `username`, `password`, `created_at`) VALUES
 (1, 'pablo', '$2y$10$omU9NXuxV4L3.46dtBKko.n2cTixsE9tNtcTU1oJzkwgQ2hh83L32', '2025-11-22 17:10:48'),
-(3, 'testabn', '$2y$10$DV2snLnmz0T1fQV1Lvu5s.15a3vAGGw3rjul7yTeU8N/EHz6/YEaq', '2025-11-22 17:12:35');
+(3, 'testabn', '$2y$10$DV2snLnmz0T1fQV1Lvu5s.15a3vAGGw3rjul7yTeU8N/EHz6/YEaq', '2025-11-22 17:12:35'),
+(4, 'leo', '$2y$10$/XlD4.f0YMf5VaFN9vbZQeMQq/6kJX106daBWh4impeaAEXlPS4Fu', '2025-11-22 22:30:36');
 
 --
 -- Índices para tabelas despejadas
@@ -83,13 +94,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de tabela `tb_address`
 --
 ALTER TABLE `tb_address`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT de tabela `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Restrições para tabelas despejadas
