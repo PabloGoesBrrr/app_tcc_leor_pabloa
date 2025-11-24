@@ -12,7 +12,6 @@ function gerarResultadoAleatorioPHP() {
     $concIdx = rand(0, 3);
     $crescIdx = rand(0, 3);
 
-    // same scoring logic you used in JS
     $pontuacao = (3 - $fluxoIdx) + (3 - $acessIdx) + $concIdx + (3 - $crescIdx);
 
     return [
