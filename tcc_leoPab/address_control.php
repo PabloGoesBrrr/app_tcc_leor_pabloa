@@ -45,6 +45,14 @@
             header('location: all_address.php');
         }
 
+    }elseif($acao == 'recuperar_unico'){
+        $endereco = new Address();
+        $endereco->__set('id', $_GET['id']);
+        $conexao = new Conexao();
+
+        $addressService = new AddressService($conexao, $endereco);
+
+        $endereco = $addressService->recuperarUnico($id);
     }
 
 

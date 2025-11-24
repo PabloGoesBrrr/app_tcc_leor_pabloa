@@ -45,13 +45,13 @@
                     <?php foreach($address as $indice => $endereco){ ?>
 
                     <div class="features-grid" >
-                        <div class="feature-card">
+                        <div method="post" class="feature-card" id="analiseForm">
                             <h4 id="endereco_<?= $endereco->id?>"> Endereço: <?= $endereco->endereco ?></h4>
                             <p id="endereco_<?= $endereco->id?>"> Cidade: <?= $endereco->cidade ?> </p>
                             <p id="endereco_<?= $endereco->id?>"> Estado: <?= $endereco->estado ?> </p>
                             <p id="endereco_<?= $endereco->id?>"> Tipo: <?= $endereco->tipo ?> </p>
-                            <a href="resultado.php">veja analise></a>
-                            <br>
+                            
+                            <a href="resultado.php?id=<?= $endereco->id ?>" class="btn-outline">Analisar Localização</a>
                             <h1 class="btn-bad" onclick="remover(<?= $endereco->id?>)">remover endereço</h1>
                         </div>
                     </div>
@@ -68,6 +68,8 @@
                 <p>&copy; 2025 LocalCerto. Todos os direitos reservados.</p>
             </div>
         </footer>
+
+        <script src="main.js"></script>
 
     </body>
 </html>

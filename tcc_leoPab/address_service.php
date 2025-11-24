@@ -43,6 +43,14 @@ class AddressService {
         return $stmt->execute();
     }
 
+    public function recuperarUnico($id) {
+        $query = "SELECT * FROM tb_address WHERE id = :id";
+        $stmt = $this->conexao->prepare($query);
+        $stmt->bindValue(':id', $id);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_OBJ);
+    }
+
 }
 
 

@@ -8,9 +8,6 @@
     <meta charset="UTF-8">
     <title>Bem vindo</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        body{ font: 14px sans-serif; text-align: center; }
-    </style>
 </head>
 <body>
     <header>
@@ -48,5 +45,10 @@
                 </div>
         </div>
     </section>
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 LocalCerto. Todos os direitos reservados.</p>
+        </div>
+    </footer>
 </body>
 </html>

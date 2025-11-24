@@ -1,3 +1,18 @@
+<?php
+
+    if (!isset($_GET['id'])) {
+        header('Location: analise.php');
+        exit;
+    }
+
+    $acao = 'recuperar_unico';
+    $id = $_GET['id'];
+    require 'address_control.php';
+
+    require 'rand_result.php'
+
+?>
+
 <!doctype html>
 <html lang="pt-BR">
     <head>
@@ -27,39 +42,57 @@
 
                     <div id="resultadoConteudo" class="resultado-card">
                         <div class="resultado-header">
-                            <div class="resultado-icon" id="resultadoIcone">✅</div>
-                            <h3 id="resultadoTitulo">Localização Recomendada!</h3>
+                            <div class="resultado-icon" id="resultadoIcone">
+                                <?= $resultado['recomendado'] ? '✅' : '⚠️' ?>
+                            </div>
+
+                            <h3 id="resultadoTitulo" style="color: <?= $resultado['recomendado'] ? '#27ae60' : '#f39c12' ?>">
+                                <?= $resultado['recomendado']
+                                    ? 'Localização Recomendada!'
+                                    : 'Atenção: Localização com Ressalvas'
+                                ?>
+                            </h3>
                         </div>
 
                         <div class="resultado-detalhes">
                             <h4>Endereço Analisado:</h4>
-                            <p id="enderecoAnalisado"></p>
+                            <p >
+                                <?= $endereco->endereco ?>,
+                                <?= $endereco->cidade ?> -
+                                <?= $endereco->estado ?>
+                                
+                            </p>
 
                             <h4>Tipo de Negócio:</h4>
-                            <p id="tipoNegocio"></p>
+                            <p id="tipoNegocio"><?= $endereco->tipo ?></p>
 
                             <h4>Avaliação:</h4>
-                            <div class="avaliacao-items">
+                            <div class="avaliacao-items" >
                                 <div class="avaliacao-item">
                                     <span class="avaliacao-label">Fluxo de Pessoas:</span>
-                                    <span class="avaliacao-valor" id="fluxoPessoas">Alto</span>
+                                    <span class="avaliacao-valor" style="color: <?= $resultado['recomendado'] ? '#27ae60' : '#f39c12' ?>" ><?= $resultado['fluxo'] ?></span>
                                 </div>
                                 <div class="avaliacao-item">
                                     <span class="avaliacao-label">Acessibilidade:</span>
-                                    <span class="avaliacao-valor" id="acessibilidade">Boa</span>
+                                    <span class="avaliacao-valor" style="color: <?= $resultado['recomendado'] ? '#27ae60' : '#f39c12' ?>"><?= $resultado['acessibilidade'] ?></span>
                                 </div>
                                 <div class="avaliacao-item">
                                     <span class="avaliacao-label">Concorrência:</span>
-                                    <span class="avaliacao-valor" id="concorrencia">Moderada</span>
+                                    <span class="avaliacao-valor" style="color: <?= $resultado['recomendado'] ? '#27ae60' : '#f39c12' ?>"><?= $resultado['concorrencia'] ?></span>
                                 </div>
                                 <div class="avaliacao-item">
                                     <span class="avaliacao-label">Potencial de Crescimento:</span>
-                                    <span class="avaliacao-valor" id="crescimento">Alto</span>
+                                    <span class="avaliacao-valor" style="color: <?= $resultado['recomendado'] ? '#27ae60' : '#f39c12' ?>"><?= $resultado['crescimento'] ?></span>
                                 </div>
                             </div>
 
                             <h4>Observações:</h4>
-                            <p id="observacoes">Este local apresenta boas características para o tipo de negócio informado. Recomendamos uma visita presencial para confirmar as condições do imóvel.</p>
+                            <p id="observacoes">
+                                <?= $resultado['recomendado']
+                                    ? 'Este local apresenta boas características para o tipo de negócio informado. Recomendamos uma visita presencial para confirmar as condições do imóvel e negociar valores de aluguel.'
+                                    : 'Este local apresenta alguns pontos de atenção. Recomendamos avaliar cuidadosamente os fatores listados acima antes de tomar uma decisão. Uma visita presencial é essencial.'
+                                ?>
+                            </p>
                         </div>
 
                         <div class="resultado-acoes">
@@ -77,6 +110,5 @@
             </div>
         </footer>
 
-        <script src="main.js"></script>
     </body>
 </html>

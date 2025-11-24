@@ -38,6 +38,8 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
+  
+
   const resultadoConteudo = document.getElementById('resultadoConteudo');
   if (resultadoConteudo) {
     const dadosString = localStorage.getItem('dadosAnalise');

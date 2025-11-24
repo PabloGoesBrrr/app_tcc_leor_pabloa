@@ -33,7 +33,7 @@
         <?php if(isset($_GET['inclusao']) && $_GET['inclusao'] == 1) { ?>
 		<div class="hero">
 			<h3>Endereço inserido com sucesso!</h3>
-            <a href="all_address.php" class="btn-primary">Veja seus endereços em analise</a>
+            <a href="all_address.php" class="btn-primary">Veja seus endereços em análise</a>
 		</div>
 		<?php } ?>
 
@@ -45,7 +45,7 @@
 
 <!-- analiseForm é o form que a main.js pega suas informacoes -->
 
-                    <form method="post" action="address_control.php?acao=inserir" id="analiseForm" class="analise-form">
+                    <form method="post" action="address_control.php?acao=inserir"  class="analise-form">
                         <div class="form-group">
                             <label for="endereco">Endereço Completo *</label>
                                 <input type="text" id="endereco" name="endereco" required placeholder="Ex: Rua das Flores, 123">
